@@ -15,7 +15,7 @@ public class LinkedList<E> implements List<E> {
     }
 
     public LinkedListNode<E> search(int index) {
-        if (size <= 0 || index >= size) throw new IndexOutOfBoundsException();
+        if (index < 0 || index > size) throw new IndexOutOfBoundsException();
         else if (index == 0) return header;
         else if (index == size - 1) return tail;
 
@@ -85,49 +85,97 @@ public class LinkedList<E> implements List<E> {
 
         LinkedListNode<E> newNode = new LinkedListNode<>(data);
         LinkedListNode<E> prevNode = search(index - 1);
-        LinkedListNode<E> searchNode = search(index);
 
-        newNode.nextNode = searchNode;
+        newNode.nextNode = search(index);
         prevNode.nextNode = newNode;
-
-        System.out.println(searchNode);
 
         size++;
     }
 
     @Override
     public E get(int index) {
-        return null;
+        LinkedListNode<E> node = search(index);
+        return node.data;
     }
 
     @Override
     public void set(int index, E data) {
-
+        LinkedListNode<E> node = search(index);
+        node.data = data;
     }
 
     @Override
     public void remove(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException();
 
+        if (index == 0) {
+            header = header.nextNode;
+            size--;
+            return;
+        }
+
+        if (index == size - 1) {
+            tail = search(size - 2);
+            size--;
+            return;
+        }
+
+        LinkedListNode<E> prevNode = search(index - 1);
+        LinkedListNode<E> deleteNode = search(index);
+
+        prevNode.nextNode = deleteNode.nextNode;
+
+        deleteNode.data = null;
+        deleteNode.nextNode = null;
+
+        size--;
     }
 
     @Override
     public void remove(E data) {
+        for (int i = 0; i < size; i++) {
+            LinkedListNode<E> node = search(i);
+            if (node.data.equals(data)) {
+                LinkedListNode<E> prevNode = search(i - 1);
+                LinkedListNode<E> deleteNode = search(i);
 
+                prevNode.nextNode = deleteNode.nextNode;
+
+                deleteNode.data = null;
+                deleteNode.nextNode = null;
+
+                size--;
+
+                break;
+            }
+        }
     }
 
     @Override
     public void removeAll() {
+        for (int i = 0; i < size; i++) {
+            LinkedListNode<E> deleteNode = search(i);
+            deleteNode.data = null;
+            deleteNode.nextNode = null;
+        }
 
+        size = 0;
     }
 
     @Override
     public boolean contain(E data) {
+        for (int i = 0; i < size; i++) {
+            LinkedListNode<E> searchNode = search(i);
+            if (searchNode.data.equals(data)) {
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
