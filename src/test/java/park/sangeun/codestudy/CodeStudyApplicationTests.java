@@ -10,7 +10,7 @@ import java.util.ArrayList;
 @SpringBootTest
 class CodeStudyApplicationTests {
     @Test
-    public void test() {
+    public void linkedListTest() {
         LinkedList<String> linkedList = new LinkedList<>();
         String value = "a";
         linkedList.add(value);
@@ -25,7 +25,24 @@ class CodeStudyApplicationTests {
         linkedList.add(1, value4);
         linkedList.addFirst("A");
         System.out.println("linkedList : " + linkedList.toString());
-        System.out.println("search : " + linkedList.search(4).toString());
+        System.out.println("size : " + linkedList.size());
+        System.out.println("contain : " + linkedList.contain("z"));
+
+        linkedList.remove("a");
+        System.out.println("after Remove : " + linkedList.toString());
+        System.out.println("size : " + linkedList.size());
+
+        linkedList.remove(0);
+        System.out.println("after Remove : " + linkedList.toString());
+        System.out.println("size : " + linkedList.size());
+
+        linkedList.remove(linkedList.size()-1);
+        System.out.println("after Remove : " + linkedList.toString());
+        System.out.println("size : " + linkedList.size());
+
+        linkedList.removeAll();
+        System.out.println("after Remove : " + linkedList.toString());
+        System.out.println("size : " + linkedList.size());
 
     }
 }
