@@ -35,7 +35,24 @@ class CodeStudyApplicationTests {
         test.removeAll("4");
         System.out.println(test);
 
-        System.out.println(test.indexOf("9"));
+        ArrayList<String> cloneList = (ArrayList<String>) test.clone();
+
+        System.out.println(test);
+        System.out.println(cloneList);
+
+        Object[] objectArray =test.toArray();
+        System.out.println(test.toArray(objectArray));
+
+        for (int i=0; i<objectArray.length; i++) {
+            System.out.println(objectArray[i]);
+        }
+
+        String[] strArray = new String[20];
+        strArray = test.toArray(strArray);
+
+        for (int i=0; i<strArray.length; i++) {
+            System.out.println(strArray[i]);
+        }
     }
 
     public void linkedListTest() {
@@ -65,6 +82,5 @@ class CodeStudyApplicationTests {
         linkedList.clear();
         System.out.println("after Remove : " + linkedList.toString());
         System.out.println("size : " + linkedList.size());
-
     }
 }

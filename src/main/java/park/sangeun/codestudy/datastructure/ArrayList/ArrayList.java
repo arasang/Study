@@ -5,7 +5,7 @@ import park.sangeun.codestudy.common.List;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-public class ArrayList<E> implements List<E> {
+public class ArrayList<E> implements List<E>, Cloneable{
     private static final int DEFAULT_CAPACITY = 10;
     private static final Object[] EMPTY_ARRAY = {}; // new Object[]{}와 무슨 차이지 ?
 
@@ -101,7 +101,9 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public void clear() {
-        array = EMPTY_ARRAY;
+        for (int i=0; i<size; i++) { //  = EMPTY_ARRAY를 할 경우 주소값만 복사함.
+            array[i] = null;
+        }
         size = 0;
     }
 
@@ -143,5 +145,31 @@ public class ArrayList<E> implements List<E> {
 
         if (index == -1) throw new NoSuchElementException();
         else return index;
+    }
+
+    public boolean isEmpty() {
+        return Arrays.equals(array, EMPTY_ARRAY);
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException { // 깊은 복사를 위한 array 카피
+        ArrayList<?> clone = (ArrayList<?>) super.clone();
+
+        clone.array = new Object[array.length];
+        System.arraycopy(array, 0, clone.array, 0, size);
+
+        return clone;
+    }
+
+    public Object[] toArray() { // 배열을 반환
+        return Arrays.copyOf(array, size);
+    }
+
+    public <T> T[] toArray(T[] a) { // 외부에서 생성한 리스트에 카피할 경우
+        if (a.length < size) {
+            return (T[]) Arrays.copyOf(array, size, a.getClass());
+        }
+        System.arraycopy(array, 0, a, 0, size);
+        return a;
     }
 }
