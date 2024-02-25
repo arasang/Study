@@ -9,12 +9,12 @@ import park.sangeun.codestudy.datastructure.LinkedList.LinkedList;
 @SpringBootTest
 class CodeStudyApplicationTests {
     @Test
-    public void test() {
+    public void test() throws Exception{
        arrayListTest();
        linkedListTest();
     }
 
-    public void arrayListTest() {
+    public void arrayListTest() throws Exception {
         ArrayList<String> test = new ArrayList<>(4);
         test.add("1");
         test.add("2");
