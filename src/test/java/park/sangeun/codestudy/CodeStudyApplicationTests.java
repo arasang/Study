@@ -3,12 +3,18 @@ package park.sangeun.codestudy;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import park.sangeun.codestudy.datastructure.ArrayList.ArrayList;
+import park.sangeun.codestudy.datastructure.LinkedList.LinkedList;
 
 
 @SpringBootTest
 class CodeStudyApplicationTests {
     @Test
     public void test() {
+       arrayListTest();
+       linkedListTest();
+    }
+
+    public void arrayListTest() {
         ArrayList<String> test = new ArrayList<>(4);
         test.add("1");
         test.add("2");
@@ -25,10 +31,13 @@ class CodeStudyApplicationTests {
 
         test.add("4");
         System.out.println(test);
-  
+
         test.removeAll("4");
         System.out.println(test);
-}
+
+        System.out.println(test.indexOf("9"));
+    }
+
     public void linkedListTest() {
         LinkedList<String> linkedList = new LinkedList<>();
         String value = "a";
@@ -49,14 +58,13 @@ class CodeStudyApplicationTests {
         System.out.println("after Remove : " + linkedList.toString());
         System.out.println("size : " + linkedList.size());
 
-        linkedList.remove(linkedList.size()-1);
+        linkedList.remove(linkedList.size() - 1);
         System.out.println("after Remove : " + linkedList.toString());
         System.out.println("size : " + linkedList.size());
 
-        linkedList.removeAll();
+        linkedList.clear();
         System.out.println("after Remove : " + linkedList.toString());
         System.out.println("size : " + linkedList.size());
-      
-        System.out.println(test.indexOf("9"));
+
     }
 }
