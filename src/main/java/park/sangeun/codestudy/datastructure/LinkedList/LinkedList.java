@@ -152,14 +152,18 @@ public class LinkedList<E> implements List<E> {
     }
 
     @Override
-    public void removeAll() {
+    public void clear() {
         for (int i = 0; i < size; i++) {
             LinkedListNode<E> deleteNode = search(i);
             deleteNode.data = null;
             deleteNode.nextNode = null;
         }
-
         size = 0;
+    }
+  
+    @Override
+    public void removeAll(E data) {
+       
     }
 
     @Override
