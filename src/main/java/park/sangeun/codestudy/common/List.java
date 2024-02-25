@@ -24,7 +24,7 @@ public interface List<E> {
     void remove(E data);
 
     /** @apiNote 전체 리스트를 제거 */
-    void removeAll();
+    void clear();
 
     /** @apiNote 포함 여부를 확인 */
     boolean contain(E data);

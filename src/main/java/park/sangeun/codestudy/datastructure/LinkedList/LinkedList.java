@@ -116,7 +116,7 @@ public class LinkedList<E> implements List<E> {
     }
 
     @Override
-    public void removeAll() {
+    public void clear() {
 
     }
 
