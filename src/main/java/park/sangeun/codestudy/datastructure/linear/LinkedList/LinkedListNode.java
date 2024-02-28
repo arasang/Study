@@ -1,4 +1,4 @@
-package park.sangeun.codestudy.datastructure.LinkedList;
+package park.sangeun.codestudy.datastructure.linear.LinkedList;
 
 public class LinkedListNode<E> {
     E data;

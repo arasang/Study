@@ -1,4 +1,4 @@
-package park.sangeun.codestudy.datastructure.LinkedList;
+package park.sangeun.codestudy.datastructure.linear.LinkedList;
 
 import park.sangeun.codestudy.common.List;
 

@@ -2,16 +2,43 @@ package park.sangeun.codestudy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import park.sangeun.codestudy.datastructure.ArrayList.ArrayList;
-import park.sangeun.codestudy.datastructure.LinkedList.LinkedList;
+import park.sangeun.codestudy.common.Queue;
+import park.sangeun.codestudy.datastructure.linear.ArrayList.ArrayList;
+import park.sangeun.codestudy.datastructure.linear.LinkedList.LinkedList;
+import park.sangeun.codestudy.datastructure.other.arrayqueue.ArrayQueue;
 
 
 @SpringBootTest
 class CodeStudyApplicationTests {
     @Test
     public void test() throws Exception{
-       arrayListTest();
-       linkedListTest();
+        queueTest();
+//       arrayListTest();
+//       linkedListTest();
+    }
+
+    public void queueTest() {
+        Queue<String> queue = new ArrayQueue<>(3);
+        queue.offer("a");
+        queue.offer("b");
+        queue.offer("c");
+        queue.offer("d");
+        queue.offer("e");
+        queue.offer("f");
+        queue.offer("g");
+
+
+        System.out.println("peek : " + queue.peek());
+        System.out.println("peek after : " + queue.toString());
+
+        System.out.println("poll : " + queue.poll());
+        System.out.println("poll after : " + queue.toString());
+        System.out.println("poll : " + queue.poll());
+        System.out.println("poll after : " + queue.toString());
+        System.out.println("poll : " + queue.poll());
+        System.out.println("poll after : " + queue.toString());
+        System.out.println("poll : " + queue.poll());
+        System.out.println("poll after : " + queue.toString());
     }
 
     public void arrayListTest() throws Exception {
