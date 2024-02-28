@@ -1,4 +1,4 @@
-package park.sangeun.codestudy.datastructure.LinkedList;
+package park.sangeun.codestudy.datastructure.linear.LinkedList;
 
 import park.sangeun.codestudy.common.List;
 
@@ -159,11 +159,6 @@ public class LinkedList<E> implements List<E> {
             deleteNode.nextNode = null;
         }
         size = 0;
-    }
-  
-    @Override
-    public void removeAll(E data) {
-       
     }
 
     @Override
