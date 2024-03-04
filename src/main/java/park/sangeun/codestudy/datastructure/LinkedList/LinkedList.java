@@ -160,11 +160,6 @@ public class LinkedList<E> implements List<E> {
         }
         size = 0;
     }
-  
-    @Override
-    public void removeAll(E data) {
-       
-    }
 
     @Override
     public boolean contain(E data) {

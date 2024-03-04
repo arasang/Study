@@ -1,8 +1,9 @@
-package park.sangeun.codestudy.technic;
+package park.sangeun.codestudy.technic.concurrency;
+
 
 import org.springframework.web.bind.annotation.*;
-import park.sangeun.codestudy.technic.model.TransactionReq;
-import park.sangeun.codestudy.technic.model.TransactionResp;
+import park.sangeun.codestudy.technic.concurrency.model.TransactionReq;
+import park.sangeun.codestudy.technic.concurrency.model.TransactionResp;
 
 @RestController
 @RequestMapping("/transaction")
@@ -12,8 +13,6 @@ public class TransactionController {
     public @ResponseBody
     TransactionResp request(@RequestBody TransactionReq request){
         TransactionResp response = new TransactionResp();
-
-
 
         return response;
     }

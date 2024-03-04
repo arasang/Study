@@ -1,11 +1,11 @@
-package park.sangeun.codestudy.technic.model;
+package park.sangeun.codestudy.technic.concurrency.model;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
+import java.io.Serializable;
 
-public class TransactionReq {
+public class TransactionReq implements Serializable {
     private String requestDh = "";
     private String cardId = "";
-    private String amount = "";
+    private int amount = 0;
     private String transactionType = "";
 
     public String getRequestDh() {
@@ -24,11 +24,11 @@ public class TransactionReq {
         this.cardId = cardId;
     }
 
-    public String getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 
@@ -45,7 +45,7 @@ public class TransactionReq {
         return "TransactionReq{" +
                 "requestDh='" + requestDh + '\'' +
                 ", cardId='" + cardId + '\'' +
-                ", amount='" + amount + '\'' +
+                ", amount=" + amount +
                 ", transactionType='" + transactionType + '\'' +
                 '}';
     }

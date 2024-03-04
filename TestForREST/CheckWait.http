@@ -1,0 +1,10 @@
+#POST http://54.252.158.19:8081/transaction/checkwait
+POST http://localhost:8081/transaction/checkwait
+Content-Type: application/json
+
+{
+  "requestDh":"20240302150723",
+  "cardId": "1010101010101010",
+  "amount": 1000,
+  "transactionType": "CHG"
+}
