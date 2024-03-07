@@ -28,10 +28,14 @@ public class CheckWaitListController {
 
     @PostMapping("/checkwait")
     public @ResponseBody void checkWait(@RequestBody TransactionReq request) {
-        log.info("[checkWait] key : {}, request : {}", KEY_TRCN, request);
+        // 무작정 요청을 큐에 쌓는 게 좋은 일인가 ?
         try {
             redisUtils.add(KEY_TRCN, request);
-        } catch (Exception e) {
+        } catch (OutOfMemoryError outOfMemoryError) { // 레디스 용량 초과로 인한 오류 발생
+            log.error("### CRITICAL ### Redis Memory FULL : {}", request);
+            throw outOfMemoryError;
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
